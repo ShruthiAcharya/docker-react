@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t frontend-project/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run frontend-project/docker-react npm run test -- -- coverage
